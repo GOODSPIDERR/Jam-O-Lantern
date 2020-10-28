@@ -58,7 +58,7 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MusicSelection(0);
+        MusicSelection(Random.Range(0 ,0));
         audioSource01.clip = loop00;
         audioSource01.Play();
         _nextStopSource = audioSource01;
@@ -76,7 +76,6 @@ public class MusicManager : MonoBehaviour
             TransitionOnNextDownbeat(_nextStopSource, _nextTransitionSource, _nextTransitionClip, _nextLoopSource, _nextLoopClip);
             print("TRANSITION ON NEXT DOWNBEAT");
         }
-
     }
 
     #region Music Transition Logic
