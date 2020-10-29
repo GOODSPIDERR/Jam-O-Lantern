@@ -14,9 +14,24 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip matt02;
     [SerializeField] private AudioClip matt03;
     [SerializeField] private AudioClip mattTransition;
-    [Header("MICHELLE'S CLIPS")]
-
     [Header("AUSTIN'S CLIPS")]
+    [SerializeField] private AudioClip austin01;
+    [SerializeField] private AudioClip austin02;
+    [SerializeField] private AudioClip austin03;
+    [SerializeField] private AudioClip austinTransition01;
+    [SerializeField] private AudioClip austinTransition02;
+    [Header("MICHELLE'S CLIPS")]
+    [SerializeField] private AudioClip michelle01;
+    [SerializeField] private AudioClip michelle02;
+    [SerializeField] private AudioClip michelle03;
+    [SerializeField] private AudioClip michelleTransition01;
+    [SerializeField] private AudioClip michelleTransition02;
+
+    //BPMs:
+    private float mattBpm01 = 170;
+    private float mattBpm02 = 172;
+    private float mattBpm03 = 174;
+    private float austinBpm = 165.6f;
 
     //STORAGE CONDITIONAL VARIABLES
     private AudioClip loop00;
@@ -38,30 +53,18 @@ public class MusicManager : MonoBehaviour
     private AudioSource _nextTransitionSource;
     private AudioSource _nextStopSource;
 
-    //MATT'S BPMs:
-    private float mattBpm01 = 170;
-    private float mattBpm02 = 172;
-    private float mattBpm03 = 174;
-    //MICHELLE's BPMs:
-
-    //AUSTIN's BPMs:
-
     //MUSIC TRACKING:
     private double barDuration;
     private double remainder;
     private double nextBarTime;
 
-    public int musicSection;
-    //public int musicSelection;
+    private int musicSection;
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        MusicSelection(Random.Range(0 ,0));
-        audioSource01.clip = loop00;
-        audioSource01.Play();
-        _nextStopSource = audioSource01;
+        SelectRandomTrackAndPlayMusic();
     }
 
     // Update is called once per frame
@@ -113,6 +116,15 @@ public class MusicManager : MonoBehaviour
     #endregion
 
     #region Music Selection Logic
+
+    public void SelectRandomTrackAndPlayMusic()
+    {
+        MusicSelection(Random.Range(0, 2));
+        audioSource01.clip = loop00;
+        audioSource01.Play();
+        _nextStopSource = audioSource01;
+    }
+
     private void MusicSelection(int musicSelection)
     {
         switch (musicSelection)
@@ -130,10 +142,23 @@ public class MusicManager : MonoBehaviour
                 bpm02 = mattBpm02;
                 bpm03 = mattBpm03;
                 break;
+            //Austin
+            case 1:
+                loop00 = austinTransition01;
+                loop01 = austin01;
+                loop02 = austin02;
+                loop03 = austin03;
+                loopTransition01 = austinTransition02;
+                loopTransition02 = austinTransition01;
+                loopTransition03 = austinTransition02;
+                bpm01 = austinBpm;
+                bpm02 = austinBpm;
+                bpm03 = austinBpm;
+                break;
+            //Michelle
+            case 2:
+                break;
 
-                //Michelle
-
-                //Austin
         }
     }
     private void SwitchAssignments()
