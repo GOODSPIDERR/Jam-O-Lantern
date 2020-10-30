@@ -9,8 +9,7 @@ public class Death : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Obstacle")
-            SceneManager.LoadScene("GameScene");
+        
     }
     void Start()
     {
@@ -20,6 +19,11 @@ public class Death : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        RaycastHit hit;
+        if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), transform.TransformDirection(Vector3.back), out hit, 0.1f))
+        {
+            if (hit.transform.tag == "Environment" || hit.transform.tag == "Obstacle")
+                SceneManager.LoadScene("GameScene");
+        }
     }
 }

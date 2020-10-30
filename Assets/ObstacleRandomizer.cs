@@ -5,30 +5,32 @@ using UnityEngine;
 public class ObstacleRandomizer : MonoBehaviour
 {
     int obstacleGenerator;
-    GameObject[] obstacles;
+    public GameObject obstacle1, obstacle2, obstacle3;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        obstacleGenerator = Random.Range(0, 2);
+        obstacleGenerator = Random.Range(0, 10);
         GameObject newObstacle;
         switch(obstacleGenerator)
         {
             default:
                 break;
             case 0:
+                newObstacle = Instantiate(obstacle1, new Vector3(0, 0, transform.position.z), Quaternion.identity);
+                newObstacle.transform.SetParent(transform);
                 break;
             case 1:
-                //newCreation = Instantiate(wall1, new Vector3(0, 0, transform.position.z - 6), Quaternion.identity);
-                //newCreation.transform.SetParent(world.transform);
+                newObstacle = Instantiate(obstacle2, new Vector3(0, 0, transform.position.z), Quaternion.identity);
+                newObstacle.transform.SetParent(transform);
                 break;
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
 
 
     }
