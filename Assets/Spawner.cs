@@ -18,9 +18,7 @@ public class Spawner : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision detected!");
         roomGenerator = Random.Range(0, 2);
-        Debug.Log(roomGenerator);
         GameObject newCreation;
         switch (roomGenerator)
         {
