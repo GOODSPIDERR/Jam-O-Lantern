@@ -5,34 +5,30 @@ using UnityEngine;
 public class Controls : MonoBehaviour
 {
 
-    bool canJump = true;
-    float jumpSpeed = 0f;
-    // Start is called before the first frame update
+    bool landed = true;
+    Rigidbody rb;
+    public Animator animator;
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        if(Input.GetKey("space") && canJump)
+        if(Input.GetKey("space") && landed)
         {
-            canJump = false;
-            jumpSpeed = 4f;
-
+            rb.velocity = new Vector3(0,3.5f,0);
+            animator.Play("PancakeJump");
         }
-        
-        transform.Translate(0, jumpSpeed * Time.deltaTime, 0);
 
-        if(transform.position.y > 0f)
-            jumpSpeed -= 15f * Time.deltaTime;
+        if(System.Math.Round(rb.velocity.y,2) == 0)
+        {
+            landed = true;
+            animator.Play("PancakeRun");
+        }
         else
         {
-            transform.position = new Vector3(0, 0, transform.position.z);
-            jumpSpeed = 0f;
-            canJump = true;
+            landed = false;
         }
 
     }
