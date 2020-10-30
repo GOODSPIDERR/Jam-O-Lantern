@@ -29,7 +29,6 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip michelle03;
     [SerializeField] private AudioClip michelleTransition;
 
-
     //BPMs:
     private float mattBpm01 = 170;
     private float mattBpm02 = 172;
@@ -62,11 +61,15 @@ public class MusicManager : MonoBehaviour
     private double remainder;
     private double nextBarTime;
     private int musicSection;
+
+    //REFERENCES
+    [SerializeField] private WorldMover worldMover;
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        //worldMover.MusicChange += ChangeMusic();
         SelectRandomTrackAndPlayMusic();
     }
 
@@ -74,15 +77,7 @@ public class MusicManager : MonoBehaviour
     void Update()
     {
         SwitchAssignments();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TransitionOnNextDownbeat(_nextStopSource, _nextTransitionSource, _nextTransitionClip, _nextLoopSource, _nextLoopClip);
-            print("TRANSITION ON NEXT DOWNBEAT");
-        }
-
         TrackMusicBars(_nextStopSource, bpm, 4);
-
     }
 
     #region Music Transition Logic
@@ -118,14 +113,20 @@ public class MusicManager : MonoBehaviour
 
         musicSection++;
     }
+
+    public void ChangeMusic()
+    {
+        TransitionOnNextDownbeat(_nextStopSource, _nextTransitionSource, _nextTransitionClip, _nextLoopSource, _nextLoopClip);
+        print("TRANSITION ON NEXT DOWNBEAT");
+    }
     #endregion
 
     #region Music Selection Logic
 
     //CALL THIS FUNCTION TO START THE MUSIC
-    public void SelectRandomTrackAndPlayMusic() 
+    private void SelectRandomTrackAndPlayMusic() 
     {
-        MusicSelection(Random.Range(0, 3));
+        MusicSelection(Random.Range(0,3));
         audioSource01.clip = loop00;
         audioSource01.Play();
         _nextStopSource = audioSource01;
