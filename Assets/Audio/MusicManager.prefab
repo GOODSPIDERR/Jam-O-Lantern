@@ -314,13 +314,11 @@ MonoBehaviour:
   austinTransition00: {fileID: 8300000, guid: b28abfda7803241c29142796f6ac75e9, type: 3}
   austinTransition01: {fileID: 8300000, guid: 4627615744d7144068f0931b9fcf79d0, type: 3}
   austinTransition02: {fileID: 8300000, guid: d0a4738609cfd4370b07845d494369b9, type: 3}
-  michelle00: {fileID: 0}
-  michelle01: {fileID: 0}
-  michelle02: {fileID: 0}
-  michelle03: {fileID: 0}
-  michelleTransition00: {fileID: 0}
-  michelleTransition01: {fileID: 0}
-  michelleTransition02: {fileID: 0}
+  michelle00: {fileID: 8300000, guid: 08c434856a3f040f088c32793a4d1fab, type: 3}
+  michelle01: {fileID: 8300000, guid: f2b113ff773804c20ad15adf91431c2e, type: 3}
+  michelle02: {fileID: 8300000, guid: 8d75dc5f3981942789b776eb6f7ea107, type: 3}
+  michelle03: {fileID: 8300000, guid: 86c5235936c8d4746aba4a05f3989611, type: 3}
+  michelleTransition: {fileID: 8300000, guid: 3fd8b7ad2f0c44cd394cfda8dce3b009, type: 3}
 --- !u!1 &4136484717719792957
 GameObject:
   m_ObjectHideFlags: 0

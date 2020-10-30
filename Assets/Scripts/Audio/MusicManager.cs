@@ -27,9 +27,8 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip michelle01;
     [SerializeField] private AudioClip michelle02;
     [SerializeField] private AudioClip michelle03;
-    [SerializeField] private AudioClip michelleTransition00;
-    [SerializeField] private AudioClip michelleTransition01;
-    [SerializeField] private AudioClip michelleTransition02;
+    [SerializeField] private AudioClip michelleTransition;
+
 
     //BPMs:
     private float mattBpm01 = 170;
@@ -126,7 +125,7 @@ public class MusicManager : MonoBehaviour
     //CALL THIS FUNCTION TO START THE MUSIC
     public void SelectRandomTrackAndPlayMusic() 
     {
-        MusicSelection(Random.Range(0, 2));
+        MusicSelection(Random.Range(0, 3));
         audioSource01.clip = loop00;
         audioSource01.Play();
         _nextStopSource = audioSource01;
@@ -168,9 +167,9 @@ public class MusicManager : MonoBehaviour
                 loop01 = michelle01;
                 loop02 = michelle02;
                 loop03 = michelle03;
-                loopTransition01 = michelleTransition00;
-                loopTransition02 = michelleTransition01;
-                loopTransition03 = michelleTransition02;
+                loopTransition01 = michelleTransition;
+                loopTransition02 = michelleTransition;
+                loopTransition03 = michelleTransition;
                 bpm01 = michelleBpm;
                 bpm02 = michelleBpm;
                 bpm03 = michelleBpm;
