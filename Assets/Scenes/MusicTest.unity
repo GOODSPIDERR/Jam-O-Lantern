@@ -458,12 +458,18 @@ MonoBehaviour:
   matt02: {fileID: 8300000, guid: ab906670820224fb09e5856ab43194e7, type: 3}
   matt03: {fileID: 8300000, guid: ad61f821372f6490fba131a3ff5baf80, type: 3}
   mattTransition: {fileID: 8300000, guid: db2a87443dd5743afb78cd73c7112e05, type: 3}
+  austin00: {fileID: 8300000, guid: 98e7cfa673973450aa57eec2d87c95b5, type: 3}
   austin01: {fileID: 8300000, guid: a10ca3f574aad490cbc0cb3be4f7768b, type: 3}
   austin02: {fileID: 8300000, guid: 0aaca21e034b74f2587eb1ab0412cbc3, type: 3}
   austin03: {fileID: 8300000, guid: a8e3c7107c23946f99cd543c8f99bc6c, type: 3}
+  austinTransition00: {fileID: 8300000, guid: b28abfda7803241c29142796f6ac75e9, type: 3}
   austinTransition01: {fileID: 8300000, guid: 4627615744d7144068f0931b9fcf79d0, type: 3}
   austinTransition02: {fileID: 8300000, guid: d0a4738609cfd4370b07845d494369b9, type: 3}
-  musicSection: 0
+  michelle01: {fileID: 0}
+  michelle02: {fileID: 0}
+  michelle03: {fileID: 0}
+  michelleTransition01: {fileID: 0}
+  michelleTransition02: {fileID: 0}
 --- !u!1 &1818606205
 GameObject:
   m_ObjectHideFlags: 0

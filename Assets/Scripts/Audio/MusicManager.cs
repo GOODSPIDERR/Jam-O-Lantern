@@ -15,15 +15,19 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip matt03;
     [SerializeField] private AudioClip mattTransition;
     [Header("AUSTIN'S CLIPS")]
+    [SerializeField] private AudioClip austin00;
     [SerializeField] private AudioClip austin01;
     [SerializeField] private AudioClip austin02;
     [SerializeField] private AudioClip austin03;
+    [SerializeField] private AudioClip austinTransition00;
     [SerializeField] private AudioClip austinTransition01;
     [SerializeField] private AudioClip austinTransition02;
     [Header("MICHELLE'S CLIPS")]
+    [SerializeField] private AudioClip michelle00;
     [SerializeField] private AudioClip michelle01;
     [SerializeField] private AudioClip michelle02;
     [SerializeField] private AudioClip michelle03;
+    [SerializeField] private AudioClip michelleTransition00;
     [SerializeField] private AudioClip michelleTransition01;
     [SerializeField] private AudioClip michelleTransition02;
 
@@ -32,6 +36,7 @@ public class MusicManager : MonoBehaviour
     private float mattBpm02 = 172;
     private float mattBpm03 = 174;
     private float austinBpm = 165.6f;
+    private float michelleBpm = 150;
 
     //STORAGE CONDITIONAL VARIABLES
     private AudioClip loop00;
@@ -57,7 +62,6 @@ public class MusicManager : MonoBehaviour
     private double barDuration;
     private double remainder;
     private double nextBarTime;
-
     private int musicSection;
     #endregion
 
@@ -72,13 +76,14 @@ public class MusicManager : MonoBehaviour
     {
         SwitchAssignments();
 
-        TrackMusicBars(_nextStopSource, bpm, 4);
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TransitionOnNextDownbeat(_nextStopSource, _nextTransitionSource, _nextTransitionClip, _nextLoopSource, _nextLoopClip);
             print("TRANSITION ON NEXT DOWNBEAT");
         }
+
+        TrackMusicBars(_nextStopSource, bpm, 4);
+
     }
 
     #region Music Transition Logic
@@ -94,8 +99,9 @@ public class MusicManager : MonoBehaviour
         nextBarTime = AudioSettings.dspTime + barDuration - remainder;
     }
 
+    //CALL THIS FUNCTION TO TRANSITION THE MUSIC
     private void TransitionOnNextDownbeat(AudioSource stopSource, AudioSource transitionSource, AudioClip transitionClip,
-        AudioSource loopSource, AudioClip loopClip)
+        AudioSource loopSource, AudioClip loopClip) 
     {
         //Stop current loop
         stopSource.SetScheduledEndTime(nextBarTime);
@@ -117,7 +123,8 @@ public class MusicManager : MonoBehaviour
 
     #region Music Selection Logic
 
-    public void SelectRandomTrackAndPlayMusic()
+    //CALL THIS FUNCTION TO START THE MUSIC
+    public void SelectRandomTrackAndPlayMusic() 
     {
         MusicSelection(Random.Range(0, 2));
         audioSource01.clip = loop00;
@@ -144,11 +151,11 @@ public class MusicManager : MonoBehaviour
                 break;
             //Austin
             case 1:
-                loop00 = austinTransition01;
+                loop00 = austin00;
                 loop01 = austin01;
                 loop02 = austin02;
                 loop03 = austin03;
-                loopTransition01 = austinTransition02;
+                loopTransition01 = austinTransition00;
                 loopTransition02 = austinTransition01;
                 loopTransition03 = austinTransition02;
                 bpm01 = austinBpm;
@@ -157,12 +164,22 @@ public class MusicManager : MonoBehaviour
                 break;
             //Michelle
             case 2:
+                loop00 = michelle00;
+                loop01 = michelle01;
+                loop02 = michelle02;
+                loop03 = michelle03;
+                loopTransition01 = michelleTransition00;
+                loopTransition02 = michelleTransition01;
+                loopTransition03 = michelleTransition02;
+                bpm01 = michelleBpm;
+                bpm02 = michelleBpm;
+                bpm03 = michelleBpm;
                 break;
-
         }
     }
     private void SwitchAssignments()
     {
+        //Code to change audio sources and clips between each music section
         switch (musicSection)
         {
             case 0:
@@ -192,7 +209,6 @@ public class MusicManager : MonoBehaviour
                 _nextTransitionClip = loopTransition03;
                 break;
         }
-
     }
     #endregion
 }
