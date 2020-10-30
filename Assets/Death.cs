@@ -23,7 +23,11 @@ public class Death : MonoBehaviour
         if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), transform.TransformDirection(Vector3.back), out hit, 0.1f))
         {
             if (hit.transform.tag == "Environment" || hit.transform.tag == "Obstacle")
-                SceneManager.LoadScene("GameScene");
+            {
+                SceneManager.LoadScene("MainMenu");
+                Time.timeScale = 1f;
+            }
+                
         }
     }
 }

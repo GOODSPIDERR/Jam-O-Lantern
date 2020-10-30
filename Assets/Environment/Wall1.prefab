@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1075437402201612926
 Transform:
   m_ObjectHideFlags: 0
@@ -262,11 +262,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee96f0ebb56c1f4da0919f5c64846ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle1: {fileID: 4859590966571184456, guid: cd463243f28c45e41a08026a0c95e9be,
+  obstacle1: {fileID: 4859590966571184456, guid: c40a608a4cb1db34fa8ec76ae8cdc995,
     type: 3}
-  obstacle2: {fileID: 3041480266514987746, guid: 148be02f56b4c3546a7ffe2c9ffdc297,
+  obstacle2: {fileID: 4859590966571184456, guid: e4eff3b18a9c91641858e461a1ca6f35,
     type: 3}
-  obstacle3: {fileID: 0}
+  obstacle3: {fileID: 4859590966571184456, guid: cd463243f28c45e41a08026a0c95e9be,
+    type: 3}
+  obstacle4: {fileID: 3041480266514987746, guid: 148be02f56b4c3546a7ffe2c9ffdc297,
+    type: 3}
+  obstacle5: {fileID: 3041480266514987746, guid: 148be02f56b4c3546a7ffe2c9ffdc297,
+    type: 3}
+  world: {fileID: 0}
+  obstacleGenerator: 0
+  generatorMax: 11
+  worldMover: {fileID: 0}
 --- !u!114 &3811177519136813216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +290,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blight: {fileID: 4836787380480342031}
   redLight: {fileID: 9117395536684185215}
-  world: {fileID: 0}
 --- !u!1 &7997986801436607301
 GameObject:
   m_ObjectHideFlags: 0

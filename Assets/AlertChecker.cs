@@ -6,11 +6,13 @@ public class AlertChecker : MonoBehaviour
 {
 
 public GameObject blight, redLight;
-    public WorldMover world;
+    GameObject world;
     // Start is called before the first frame update
     void Start()
     {
-        if(world.alert)
+        world = GameObject.Find("World");
+        WorldMover mover = world.GetComponent<WorldMover>();
+        if(mover.alert)
         {
             Destroy(blight);
             redLight.SetActive(true);

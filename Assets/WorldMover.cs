@@ -16,6 +16,8 @@ public class WorldMover : MonoBehaviour
      List<GameObject> redLightList = new List<GameObject>();
      string nameToAddRed = "RedLight";
 
+ 
+
     // Update is called once per frame
     void Update()
     {
@@ -36,7 +38,7 @@ public class WorldMover : MonoBehaviour
 
             foreach(GameObject kill in lightList)
             {
-                Destroy(kill);
+                kill.SetActive(false);
             }
 
             foreach(GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
@@ -51,9 +53,6 @@ public class WorldMover : MonoBehaviour
             {
                 revive.SetActive(true);
             }
-
-            Debug.Log(lightList.Count);
-            Debug.Log(redLightList.Count);
         }
     }
 
